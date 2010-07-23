@@ -1,0 +1,7 @@
+DESCRIPTION	  'cgv media ds_filter callback'
+EXPORTS
+               DllGetClassObject PRIVATE
+		       DllCanUnloadNow PRIVATE
+		       DllRegisterServer PRIVATE
+		       DllUnregisterServer PRIVATE
+
