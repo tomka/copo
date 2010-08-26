@@ -1,0 +1,47 @@
+Copo - Computer graphical snow simulation
+===========================================
+
+This project is the (source code) result of my minor thesis at TU Dresden, Germany. Now it is made public, GPLv2 licensed and worked on once in a while. It is basically an implementation of of Paul Fearings "Computer modeling of fallen snow" algorithm -- at least most of it. Parts of the folder structure will be changed, namely the dependencies folder - the binaries will be excluded. The same goes for the project files.
+
+In the simulator itself you can use different modifiers on a scene which eventually produce a snow surface. There are some things in the original publication that are not (yet) implemented (e.g. adaptive mesh generation, implicit functions), but good results can be achieved. Some bugs still hide and -- up to now -- could not be tracked down.
+
+The content of this folder has the following structure:
+  data\		- Some mask images
+  dependencies\ - A couple of dependencies, yet to exclude
+  obj\		- Example data and materials (OBJ format)
+  src\		- Source code
+
+Dependencies
+========
+It needs different (shared) libraries to link the program correctly. Currently the Windows folder contains the appropriate DLL files. This is likely to change in the future. In the following list are those dependencies listed (e.g. to install them in linux):
+
+libgcc_s.so.1 (GCC_3.0)
+libgcc_s.so.1 (GCC_4.0.0)
+libgomp.so.1 (OMP_1.0)
+libgomp.so.1 (GOMP_1.0)
+libm.so.6 (GLIBC_2.2.5)
+libpthread.so.0 (GLIBC_2.3.2)
+libpthread.so.0 (GLIBC_2.2.5)
+libstdc++.so.6 (CXXABI_1.3.1)
+libstdc++.so.6 (GLIBCXX_3.4.9)
+libstdc++.so.6 (CXXABI_1.3)
+libstdc++.so.6 (GLIBCXX_3.4)
+libc.so.6 (GLIBC_2.4)
+libc.so.6 (GLIBC_2.2.5)
+libc.so.6 (GLIBC_2.3.4)
+libCGAL.so.3 (CGAL 3.4)
+libGLEW.so.1.5 (GLEW 1.5)
+libboost_signals-mt.so.1.37.0 (BOOST Signals 1.37.0)
+libboost_thread-mt.so.1.37.0 (BOOST Thread 1.37.0)
+libboost_unit_test_framework-mt.so.1.37.0 (Boost Tests 1.37.0)
+libIL.so.1 (IL 1.0)
+libILU.so.1 (ILU 1.0)
+libILUT.so.1: (ILUT 1.0)
+libglut.so.3 (GLUT 3)
+libGLU.so.1 (GLU)
+libGL.so.1 (OpenGL)
+
+Other more system-close dependencies are there as well, but most systems will have them if a compiler and its utilities are installed. (If not, on linux you can find out with "ldd"). In most cases it is enough to install FLTK 2.x, CGAL 3.4, BOOST 1.3x.
+
+Project files are likely to be removed too and a build system like cmake will be used.
+
