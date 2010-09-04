@@ -6,6 +6,9 @@
 #ifdef WIN32
 #include <windows.h>
 #pragma warning (disable:4311)
+#else
+// this somehow needed on linux to use FLTK with GLUT
+#define APIENTRY
 #endif
 
 #include <cgv/math/linalg/linalg.h>
