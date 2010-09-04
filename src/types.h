@@ -1,7 +1,7 @@
 #pragma once
 #include <cgv/math/linalg/linalg.h>
 #include <cgv/scene/geometry/geometry.h>
-#include "MeshRepresentation/Voronoi/geom2d.h"
+//#include "MeshRepresentation/Voronoi/geom2d.h"
 #include <cgv/scene/geometry/ray.h>
 #include <cgv/scene/geometry/direction.h>
 

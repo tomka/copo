@@ -58,6 +58,9 @@
 #  include <fltk/Cursor.h>
 #  include <fltk/visual.h>
 
+// TODO: remove/relocate me
+#define APIENTRY /**/
+
 namespace fltk {
 	
 	class FL_GLUT_API GlutWindow : public fltk::GlWindow {

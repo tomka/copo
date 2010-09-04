@@ -10,10 +10,25 @@ include_directories(
 	dependencies/linux_include/
 )
 
-add_definitions(-DAPIENTRY="/**/")
+link_directories(
+	../dependencies/fltk-2.0.x-r6786/lib
+)
+
+#add_definitions(-DAPIENTRY=/**/)
 
 set(COPO_LIB
-	-lcgal
+	-lboost_signals
+	-lIL
+	-lILU
+	-lILUT
+	-lGLEW
+	-lXft
+	-lXinerama
+	-lCGAL
+	-lfltk2
+	-lfltk2_gl
+	-lfltk2_glut
+	-lfltk2_images
 )
 
 set(COPO_H
@@ -71,33 +86,11 @@ set(COPO_H
 	src/Shading/Texture.h
 	src/Shading/Shader.h
 	src/Shading/Material.h
-	src/Tests/utilities_test.h
 	src/MeshRepresentation/CGALRepresentation/CGALConfig.h
 	src/MeshRepresentation/CGALRepresentation/CGALAdapter.h
 	src/MeshRepresentation/CGALRepresentation/CGALLaunchSite.h
 	src/MeshRepresentation/MeshRepresentation.h
-	src/MeshRepresentation/Voronoi/MeshChangedEventArgs.h
-	src/MeshRepresentation/Voronoi/IncDelaunay.h
-	src/MeshRepresentation/Voronoi/dllist.h
-	src/MeshRepresentation/Voronoi/geom2d.h
-	src/MeshRepresentation/Voronoi/QuadEdge.h
-	src/MeshRepresentation/Voronoi/NaiveVoronoi.h
-	src/MeshRepresentation/Voronoi/common.h
 	src/MeshRepresentation/IMeshRepresentation.h
-	src/MeshRepresentation/TUD/info_point_2d.h
-	src/MeshRepresentation/TUD/TUDLaunchSite.h
-	src/MeshRepresentation/TUD/point_2d.h
-	src/MeshRepresentation/TUD/epsilon.h
-	src/MeshRepresentation/TUD/utilities.h
-	src/MeshRepresentation/TUD/ext_corner_connectivity.h
-	src/MeshRepresentation/TUD/TUDAdapter.h
-	src/MeshRepresentation/TUD/gl_delaunay_mesh_draw.h
-	src/MeshRepresentation/TUD/delaunay_mesh_with_hierarchy.h
-	src/MeshRepresentation/TUD/triangle_mesh.h
-	src/MeshRepresentation/TUD/delaunay_mesh.h
-	src/MeshRepresentation/TUD/corner_connectivity.h
-	src/MeshRepresentation/TUD/mesh_geometry_reference.h
-	src/MeshRepresentation/TUD/mesh_geometry.h
 	src/MeshPool.h
 	src/polygonal_mesh.h
 	src/objects.h
@@ -160,15 +153,8 @@ set(COPO_CPP
 	src/Shading/Shader.cpp
 	src/Shading/Texture.cpp
 	src/Shading/GLSL_Shader.cpp
-	src/Tests/Runner.cpp
 	src/MeshRepresentation/CGALRepresentation/CGALLaunchSite.cpp
 	src/MeshRepresentation/CGALRepresentation/CGALAdapter.cpp
-	src/MeshRepresentation/Voronoi/MeshChangedEventArgs.cpp
-	src/MeshRepresentation/Voronoi/IncDelaunay.cpp
-	src/MeshRepresentation/Voronoi/geom2d.cpp
-	src/MeshRepresentation/Voronoi/QuadEdge.cpp
-	src/MeshRepresentation/TUD/TUDAdapter.cpp
-	src/MeshRepresentation/TUD/TUDLaunchSite.cpp
 	src/objects.cpp
 	src/Mesh.cpp
 	src/Modifiers/ModifierAddAdditionalBorderPoints.cpp
@@ -185,20 +171,12 @@ set(COPO_CPP
 	src/GUI/window.cpp
 	src/MeshPool.cpp
 	src/snowSim.cxx
-	src/MeshRepresentation/TUD/delaunay_main.cxx
-	src/MeshRepresentation/TUD/utilities.cxx
-	src/MeshRepresentation/TUD/corner_connectivity.cxx
-	src/MeshRepresentation/TUD/triangle_mesh.cxx
-	src/MeshRepresentation/TUD/ext_corner_connectivity.cxx
-	src/MeshRepresentation/TUD/mesh_geometry.cxx
-	src/MeshRepresentation/TUD/delaunay_mesh_with_hierarchy.cxx
-	src/MeshRepresentation/TUD/gl_delaunay_mesh_draw.cxx
-	src/MeshRepresentation/TUD/delaunay_mesh.cxx
 )
-add_executable(bin/copo
+
+add_executable(../bin/copo
 	${COPO_CPP}
 	${COPO_H}
 )
 
-target_link_libraries(bin/copo ${COPO_LIB})
+target_link_libraries(../bin/copo ${COPO_LIB})
 

@@ -147,7 +147,7 @@ namespace SnowSim {
 			// Method 2
 
 			return
-				abs(
+				std::abs(
 					(hi->next->origin->position.x() - hi->origin->position.x())
 						*(hi->next->next->origin->position.y() - hi->origin->position.x())
 					- (hi->next->origin->position.y() - hi->origin->position.y())
@@ -163,9 +163,9 @@ namespace SnowSim {
 			int   coord;           // coord to ignore: 1=x, 2=y, 3=z
 
 			// select largest abs coordinate to ignore for projection
-			ax = abs(normal.x());     // abs x-coord
-			ay = abs(normal.y());     // abs y-coord
-			az = abs(normal.z());     // abs z-coord
+			ax = std::abs(normal.x());     // abs x-coord
+			ay = std::abs(normal.y());     // abs y-coord
+			az = std::abs(normal.z());     // abs z-coord
 
 			coord = 3;                     // ignore z-coord
 			if (ax > ay) {

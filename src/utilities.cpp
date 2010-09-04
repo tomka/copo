@@ -67,7 +67,7 @@ bool segment_segment_intersect(const point3f &p0,const point3f &p1,const point3f
 {
 	// WARNING: Works only in left handed sysem!
 	float d=(p1[0]-p0[0])*(p3[2]-p2[2])-(p1[2]-p0[2])*(p3[0]-p2[0]);
-	if (abs(d)<0.001) {return false;}
+	if (std::abs(d)<0.001) {return false;}
 	float AB=((p0[2]-p2[2])*(p3[0]-p2[0])-(p0[0]-p2[0])*(p3[2]-p2[2]))/d;
 	if (AB>0.0 && AB<1.0)
 	{
@@ -91,7 +91,7 @@ bool ray_line_intersect(const point3f &p0,const point3f &p1,const point3f &p2, c
 	// WARNING: Works only in left handed sysem!
 	float d=(p1[0]-p0[0])*(p3[2]-p2[2])-(p1[2]-p0[2])*(p3[0]-p2[0]);
 	// if the line is parallel, return false
-	if (abs(d)<0.001) {return false;}
+	if (std::abs(d)<0.001) {return false;}
 
 	float dd = 1.0 / d;
 	float r=((p0[2]-p2[2])*(p3[0]-p2[0])-(p0[0]-p2[0])*(p3[2]-p2[2]))*dd;
@@ -112,7 +112,7 @@ bool segment_ray_intersect(const point3f &p0,const point3f &p1,const point3f &p2
 	// WARNING: Works only in left handed sysem!
 	float d=(p1[0]-p0[0])*(p3[2]-p2[2])-(p1[2]-p0[2])*(p3[0]-p2[0]);
 	// if the line is parallel, return false
-	if (abs(d)<0.001) {return false;}
+	if (std::abs(d)<0.001) {return false;}
 
 	float dd = 1.0 / d;
 	float r=((p0[2]-p2[2])*(p3[0]-p2[0])-(p0[0]-p2[0])*(p3[2]-p2[2]))*dd;
