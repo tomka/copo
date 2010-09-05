@@ -542,19 +542,28 @@ namespace SnowSim {
 
 		/// opens a file with given filename
 		void window::open(const char* filename) {
-			if (filename) {
-				try
-				{
-					AddMesh( std::string(filename), std::string(filename), false );
-					mesh_choice->value(mesh_choice->children() - 1);
+			if ( filename ) {
+				open( std::string(filename), std::string(filename), false, true );
+			}
+		}
+
+		/// opens a file with given filename, displayName and offers to recompute normals and to reset the camera
+		void window::open(std::string filename, std::string displayName, bool recomputeNormals, bool resetCamera) {
+			try
+			{
+				// actually, add the mesh
+				AddMesh( filename, displayName, recomputeNormals );
+				// select the added mesh in drop down list
+				mesh_choice->value(mesh_choice->children() - 1);
+				if ( resetCamera ) {
 					reset_camera_cb();
-					update_label();
-					update_mesh_ui();
 				}
-				catch (exception& e)
-				{
-					std::cout << "[Error] Could not load mesh \"" << m_cStartFile << "\": " << e.what() << std::endl;
-				}
+				update_label();
+				update_mesh_ui();
+			}
+			catch (exception& e)
+			{
+				std::cout << "[Error] Could not load mesh \"" << m_cStartFile << "\": " << e.what() << std::endl;
 			}
 		}
 
@@ -880,13 +889,12 @@ namespace SnowSim {
 		{
 			try
 			{
-				AddMesh( std::string(add_body_dialog_file_name->text()), std::string(add_body_dialog_body_name->text()),
-						add_body_dialog_recompute_normals->state() );
+				open( std::string(add_body_dialog_file_name->text()),
+					std::string(add_body_dialog_body_name->text()),
+					add_body_dialog_recompute_normals->state(),
+					false ); // don't reset camera for new mesh
 
 				add_body_dialog->hide();
-
-				mesh_choice->value(mesh_choice->children() - 1);
-				update_mesh_ui();
 			}
 			catch (exception& e)
 			{

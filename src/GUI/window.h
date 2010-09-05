@@ -445,6 +445,9 @@ namespace SnowSim {
 			/// opens a file with given filename
 			void open(const char* filename);
 
+			/// opens a file with given filename, displayName and offers to recompute normals and to reset the camera
+			void open(std::string filename, std::string displayName, bool recomputeNormals, bool resetCamera);
+
 			static inline void save_heightmap_cb(fltk::Widget *w,void *data)
 			{
 				((window*)data)->save_heightmap();
