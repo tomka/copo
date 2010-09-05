@@ -38,8 +38,8 @@ namespace SnowSim {
 			MeshReader( const std::string &filename )
 				: SnowSim::polygonal_mesh_obj_reader( filename )
 			{
-				string mtllib = filename;
-				findandreplace(mtllib, string(".obj"), string(".mtl"));
+				std::string mtllib = filename;
+				findandreplace(mtllib, std::string(".obj"), std::string(".mtl"));
 
 
 				m_matlib = filename;

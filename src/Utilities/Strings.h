@@ -7,7 +7,7 @@ namespace SnowSim {
 	namespace Utilities {
 		struct Strings {
 
-			static void StringSplit(string str, char delim, vector<string>& results)
+			static void StringSplit(std::string str, char delim, std::vector<std::string>& results)
 			{
 				int cutAt;
 				while( (cutAt = str.find_first_of(delim)) != str.npos )

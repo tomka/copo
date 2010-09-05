@@ -3,13 +3,16 @@
 #include <Exceptions/ArgumentException.h>
 #include <Exceptions/NotImplementedException.h>
 #include "Mesh.h"
-#include "MeshRepresentation/Voronoi/geom2d.h"
+//#include "MeshRepresentation/Voronoi/geom2d.h"
 #include <Model/ILaunchSite.h>
 #include "types.h"
 #include "CGALConfig.h"
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
 #include <CGAL/Triangulation_2.h>
 #include <Model/EdgeGroupFace.h>
+
+// TODO: remove/relocate me
+typedef float Real;
 
 // forward declarations
 namespace SnowSim

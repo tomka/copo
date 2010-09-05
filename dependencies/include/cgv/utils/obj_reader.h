@@ -126,7 +126,7 @@ namespace cgv{
 				}
 
 				//remove linux line endings
-				findandreplace(line, string("\r"), string(""));
+				findandreplace(line, std::string("\r"), std::string(""));
 
 				index = line.find("$");
 				if(index != std::string::npos)
@@ -139,7 +139,7 @@ namespace cgv{
 				if(index != std::string::npos)
 				{
 					line.erase(0,index+6);
-					findandreplace(line, string(" "), string(""));
+					findandreplace(line, std::string(" "), std::string(""));
 					++mtllibc;
 					process_mtllib(index, line);
 
@@ -150,7 +150,7 @@ namespace cgv{
 				if(index != std::string::npos)
 				{
 					line.erase(0,index+6);
-					findandreplace(line, string(" "), string(""));
+					findandreplace(line, std::string(" "), std::string(""));
 					process_usemtl(fc, line);
 
 					return;

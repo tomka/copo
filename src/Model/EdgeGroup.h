@@ -468,7 +468,7 @@ namespace SnowSim {
 				if ( m_it == launch_sites_done.end() ) {
 					launch_sites.push_back( sites.first );
 					index1 = launch_sites.size();
-					launch_sites_done.insert( make_pair( sites.first, index1 ) );
+					launch_sites_done.insert( std::make_pair( sites.first, index1 ) );
 				} else {
 					index1 = (*m_it).second;
 				}
@@ -477,7 +477,7 @@ namespace SnowSim {
 				if ( m_it == launch_sites_done.end() ) {
 					launch_sites.push_back( sites.second );
 					index2 = launch_sites.size();
-					launch_sites_done.insert( make_pair( sites.second, index2 ) );
+					launch_sites_done.insert( std::make_pair( sites.second, index2 ) );
 				} else {
 					index2 = (*m_it).second;
 				}
@@ -486,7 +486,7 @@ namespace SnowSim {
 				if ( m_it == launch_sites_done.end() ) {
 					launch_sites.push_back( sites.third );
 					index3 = launch_sites.size();
-					launch_sites_done.insert( make_pair( sites.third, index3 ) );
+					launch_sites_done.insert( std::make_pair( sites.third, index3 ) );
 				} else {
 					index3 = (*m_it).second;
 				}
@@ -517,7 +517,7 @@ namespace SnowSim {
 
 			os << std::endl;
 
-			return make_pair( launch_sites.size(), 0 );
+			return std::make_pair( launch_sites.size(), 0 );
 		}
 
 		/// Gets a string that represents the mesh with

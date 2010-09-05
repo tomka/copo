@@ -12,13 +12,13 @@ namespace SnowSim {
 			/// e. g. if path is "c:\a\b\c.txt" then "c:\a\b" will be returned
 			static std::string GetPathWithoutFileName(const std::string& path)
 			{
-				string::size_type cutAt = path.find_last_of("\\");
+				std::string::size_type cutAt = path.find_last_of("\\");
 
 				if ( cutAt == path.npos ) {
 					cutAt = path.find_last_of("/");
 
 					if ( cutAt == path.npos )
-						return string("");
+						return std::string("");
 				}
 
 				return path.substr(0, cutAt);
@@ -28,7 +28,7 @@ namespace SnowSim {
 			/// e. g. if path is "c:\a\b\c.txt" then "c.txt" will be returned
 			static std::string GetFileName(const std::string& path)
 			{
-				vector<string> s_arr;
+				std::vector<std::string> s_arr;
 				SnowSim::Utilities::Strings::StringSplit(path, '\\', s_arr);
 
 				if (s_arr.size() == 1) {

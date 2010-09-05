@@ -1,5 +1,6 @@
 #include "MeshReader.h"
 #include <types.h>
+#include <cassert>
 #include <Utilities/Path.h>
 //#include <dvutil/file.h>
 #include <Utilities/Timer.h>
@@ -43,7 +44,7 @@ namespace SnowSim {
 			if ( m_materialMap.size() == 0 )
 			{
 				// add default material for all faces
-				m_materialMap.insert( make_pair(0, SnowSim::Shading::Material()) );
+				m_materialMap.insert( std::make_pair(0, SnowSim::Shading::Material()) );
 			}
 
 			std::map<int, SnowSim::Shading::Material>::iterator m_it
@@ -119,8 +120,8 @@ namespace SnowSim {
 				if(index != std::string::npos)
 				{
 					line.erase(0,index+6);
-					findandreplace(line, string(" "), string(""));
-					findandreplace(line, string("\r"), string(""));
+					findandreplace(line, std::string(" "), std::string(""));
+					findandreplace(line, std::string("\r"), std::string(""));
 
 					if ( m_materialRepository.find(line) != m_materialRepository.end() )
 					{
@@ -261,7 +262,7 @@ namespace SnowSim {
 				material = (*m_it).second;
 			}
 
-			m_materialMap.insert( make_pair(index, *material) );
+			m_materialMap.insert( std::make_pair(index, *material) );
 		}
 	}
 }

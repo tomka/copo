@@ -39,7 +39,7 @@ namespace MeshRepresentations {
 				new_ls->SetBaseHeight( position.y() );
 
 				// Temporary insertion
-				m_handleMap.insert(make_pair(new_ls, handle));
+				m_handleMap.insert(std::make_pair(new_ls, handle));
 
 				return new_ls;
 			}
@@ -61,12 +61,12 @@ namespace MeshRepresentations {
 				ls2->SetType(LaunchSite::OnDrop);
 
 				// Temporary insertion
-				m_handleMap.insert(make_pair(ls1, site1));
-				m_handleMap.insert(make_pair(ls2, site2));
+				m_handleMap.insert(std::make_pair(ls1, site1));
+				m_handleMap.insert(std::make_pair(ls2, site2));
 
 				m_cdt->insert_constraint ( site1, site2 );
 
-				return make_pair( ls1, ls2);
+				return std::make_pair( ls1, ls2);
 			}
 
 			bool

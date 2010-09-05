@@ -1,3 +1,4 @@
+#include <cassert>
 #include "Mesh.h"
 #include <Exceptions/ArgumentException.h>
 #include <Utilities/Timer.h>
