@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 2.8)
 project(copo)
 
+## Compiler flags
+if(CMAKE_COMPILER_IS_GNUCXX)
+    list(APPEND CMAKE_CXX_FLAGS "-frounding-math") ## -frounding-math needed by CGAL
+endif()
+
 #subdirs(../dependencies/linux_include/cgv)
 include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}
