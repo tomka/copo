@@ -592,7 +592,7 @@ namespace SnowSim {
 
 				const char* filename = fltk::file_chooser("Export snow in obj format", "*.obj", obj_file_name.c_str());
 				if (filename) {
-					std::cout << "[Sketch Output] exporting snow to " << filename << "...";
+					std::cout << "[Object Output] exporting snow to " << filename << "...";
 
 					std::ofstream output(filename, std::ios::out);
 					world->GetSnowModel()->getObjRepresentation(output);
@@ -613,7 +613,7 @@ namespace SnowSim {
 		void window::save_as_cb() {
 			const char* filename = fltk::file_chooser("Save control mesh", "*.obj", this->filename);
 			if (filename) {
-				std::cout << "saving control mesh to " << filename << "...";
+				std::cout << "[Object Output] saving control mesh to " << filename << "...";
 				if (!basemesh_drawable->mesh->save(filename)) {
 					std::cout << "Could not save file: "<< filename << "!" << std::endl;
 				} else {
